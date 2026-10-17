@@ -1,0 +1,20 @@
+package com.hrms;
+import java.sql.Connection;
+import java.sql.SQLException;
+import com.hrms.config.DatabaseConnection;
+public class DatabaseConnectionTest {
+
+    public static void main(String[] args) {
+
+        try (Connection connection =
+                     DatabaseConnection.getConnection()) {
+
+            System.out.println("MySQL connection successful!");
+
+        } catch (SQLException e) {
+            System.out.println(
+                    "Connection failed: " + e.getMessage()
+            );
+        }
+    }
+}
